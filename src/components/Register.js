@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const handleSubmit = event => {
@@ -36,7 +37,7 @@ const Register = () => {
                                 </label>
                                 <input type="Password" name='password' placeholder="password" className="input input-bordered" required />
                                 <label className="label">
-                                    <a href="#" className="label-text-alt text-white link link-hover">Forgot password?</a>
+                                    <Link to={'/login'} className="label-text-alt text-white link link-hover">Already have an Account?</Link>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
