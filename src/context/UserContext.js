@@ -7,7 +7,8 @@ export const AuthContext = createContext();
 const auth = getAuth(app);
 
 const UserContext = ({children}) => {
-    const [user, setUser] = useState({displayName: 'Authoi'})
+    const [user, setUser] = useState({displayName: 'Authoi'});
+    const [loading, setLoading] = useState(true);
 
     const googleProvider = new GoogleAuthProvider()
 
@@ -30,6 +31,7 @@ const UserContext = ({children}) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
+            setLoading(false)
             console.log('auth state changed',currentUser);
         })
         return () => {
@@ -37,7 +39,7 @@ const UserContext = ({children}) => {
         }
     }, [])
 
-    const authInfo = {user, createUser, signIn, logOut, signInWithGoogle};
+    const authInfo = {loading ,user, createUser, signIn, logOut, signInWithGoogle};
 
 
     return (
