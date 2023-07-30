@@ -21,7 +21,13 @@ const Header = () => {
                 <Link  className='btn btn-ghost normal-case text-xl' to={'/login'}>Login</Link>
                 <Link  className='btn btn-ghost normal-case text-xl' to={'/register'}>Register</Link>
                 {user?.email && <span>Welcome, {user.email}</span>}
-                <button onClick={handleSignOut} className="btn btn-sm btn-ghost btn-active">Log Out</button>
+                {user?.email ? 
+                    <button onClick={handleSignOut} className="btn btn-sm btn-ghost btn-active">Log Out</button>
+                    :
+                    <Link to={'/login'}>
+                        <button className='btn btn-sm btn-ghost hover:bg-violet-600 hover:animate-bounce active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300'>Log In</button>
+                    </Link>
+                }
             </div>
         </div>
     );

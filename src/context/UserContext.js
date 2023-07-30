@@ -24,7 +24,7 @@ const UserContext = ({children}) => {
     }
 
     const signInWithGoogle = () => {
-        signInWithPopup(auth, googleProvider)
+        return signInWithPopup(auth, googleProvider);
     }
 
     useEffect(() => {
@@ -37,7 +37,8 @@ const UserContext = ({children}) => {
         }
     }, [])
 
-    const authInfo = {user, createUser, signIn, logOut};
+    const authInfo = {user, createUser, signIn, logOut, signInWithGoogle};
+
 
     return (
         <div>
